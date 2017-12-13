@@ -42,13 +42,16 @@ def skip_gram(one_hots, word_labels, dimensions = 100):
             sess.run(weights.initializer)
             sess.run(bias.initializer)
             sess.run(weights2.initializer)
-            for i in range(200):
+            iterations = 201
+            for i in range(iterations):
                 sess.run(learn_word_vectors, feed_dict)
                 
                 if i % 20 == 0:
                     print(sess.run(error,feed_dict))
-    """this returns our word vectors"""                
-    return hidden_layer
+                    
+            if i == iterations - 1:
+                """this returns our word vectors"""               
+                return sess.run(hidden_layer, feed_dict)
 
 
 
