@@ -47,7 +47,8 @@ def skip_gram(one_hots, word_labels, dimensions = 100):
                 
                 if i % 20 == 0:
                     print(sess.run(error,feed_dict))
-
+    """this returns our word vectors"""                
+    return hidden_layer
 
 
 
