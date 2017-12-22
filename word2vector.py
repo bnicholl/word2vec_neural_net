@@ -24,8 +24,7 @@ def skip_gram(one_hots, word_labels, dimensions = 100):
         """2nd set of weights that puts our vector speaces into back into the amount of words
         in our vocabulary so we can get propper probabilites for our corpus"""
         weights2 = tf.get_variable('weights2', shape = [dimensions, one_hots.shape[1]], 
-            initializer=tf.contrib.layers.xavier_initializer() ) 
-        # did some wierd list comp below. fix that shit
+            initializer=tf.contrib.layers.xavier_initializer() )
         """This layer sets our nodes to the same amount as our intial one_hot vector inputs
         This is so we can put the output layer ibnto propper probability form"""
         output_layer = tf.matmul(hidden_layer, weights2) 
